@@ -1,0 +1,17 @@
+{
+  "type": "module",
+  "name": "billmaher",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "https://github.com/",
+  "author": "admin@billmaher.finance",
+  "license": "MIT",
+  "scripts": {
+    "dev": "./bin/serve.sh"
+  },
+  "dependencies": {
+    "graphql-request": "^3.4.0",
+    "http-server": "^0.12.3",
+    "web3": "^1.3.4"
+  }
+}
