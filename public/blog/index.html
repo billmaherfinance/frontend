@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+   <meta charset="utf-8" />
+   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
+   <meta name="viewport" content="width=device-width" />
+
+   <meta name="title" content="Bill Maher Finance">
+   <meta name="description" content="Major Fan of Bill Maher">
+
+   <meta property="og:type" content="website">
+   <meta property="og:url" content="https://billmaher.finance">
+   <meta property="og:title" content="Bill Maher Finance">
+
+   <title>Bill Maher Finance</title>
+
+   <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
+   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous">
+   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      crossorigin="anonymous">
+
+   <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
+   <script src="https://unpkg.com/web3/dist/web3.min.js"></script>
+   <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
+
+   <script type="module" src="index.js"></script>
+
+</head>
+<style>
+   @import url('https://fonts.googleapis.com/css2?family=Encode+Sans&display=swap');
+   @import url('https://fonts.googleapis.com/icon?family=Material+Icons&display=swap');
+
+   :root {
+      --mdc-typography-font-family: "Encode Sans", sans-serif, monospace;
+
+      --mdc-theme-primary: #696969;
+      --bg-color: #fff;
+
+      --header-bg-color: #fff;
+      --header-link-color: rgba(0, 0, 0, 0.85);
+
+      --button-bg-color: rgba(255, 255, 255, 0.05);
+      --button-bg-hover-color: darken(--button-bg-color, 20%);
+
+      --button-color: rgb(51, 169, 255);
+      --button-border-color: rgb(51, 169, 255);
+
+   }
+
+   @media screen and (min-width: 450px) {
+      html {
+         --header-fontsize: 20px;
+         --header-padding: 15px;
+      }
+
+      #avalabs {
+         width: 50px;
+      }
+   }
+
+   @media screen and (min-width: 750px) {
+      html {
+         --header-fontsize: 20px;
+         --header-padding: 40px;
+      }
+
+      #avalabs {
+         width: 75px;
+      }
+   }
+
+   @media screen and (min-width: 1050px) {
+      html {
+         --header-fontsize: 20px;
+         --header-padding: 75px;
+      }
+
+      #avalabs {
+         width: 100px;
+      }
+   }
+
+   @media screen and (min-width: 1350px) {
+      html {
+         --header-fontsize: 20px;
+         --header-padding: 125px;
+      }
+
+      #avalabs {
+         width: 120px;
+      }
+   }
+
+   @media screen and (min-width: 1650px) {
+      html {
+         --header-fontsize: 20px;
+         --header-padding: 175px;
+      }
+
+      #avalabs {
+         width: 140px;
+      }
+   }
+
+   body,
+   html {
+      margin: 0;
+   }
+
+   body {
+      background-color: var(--bg-color);
+      color: var(--mdc-theme-primary);
+   }
+
+   header .mdc-button--outlined:not(:disabled) {
+      background-color: var(--button-bg-color) !important;
+      color: var(--button-color) !important;
+      border-color: var(--button-border-color) !important;
+      cursor: pointer;
+   }
+
+   header .mdc-button--outlined:not(:disabled):hover {
+      background-color: var(--button-bg-hover-color) !important;
+   }
+
+   .mdc-top-app-bar {
+      padding-left: var(--header-padding);
+      padding-right: var(--header-padding);
+      background-color: var(--header-bg-color);
+      color: var(--mdc-theme-primary);
+   }
+
+   .mdc-top-app-bar a {
+      font-weight: 700;
+      font-size: var(--header-fontsize);
+      color: var(--header-link-color);
+      text-decoration: none;
+   }
+
+   .mdc-top-app-bar a:hover {
+      color: var(--header-link-color-hover)
+   }
+
+   .mdc-top-app-bar--fixed .mdc-top-app-bar__row {
+      height: 91px;
+   }
+
+   nav {
+      flex-grow: 2;
+   }
+
+   main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+   }
+
+   main {
+      padding-top: 111px;
+      padding-bottom: 111px;
+   }
+
+   .information .feature {
+      font-size: 46px;
+   }
+
+   .circle {
+      padding: 13px 20px;
+      border-radius: 50%;
+      background-color: #573725;
+      color: #fff;
+      max-height: 50px;
+      z-index: 2;
+   }
+
+   .font-weight-bold {
+      font-weight: 700 !important;
+   }
+
+   .credit {
+      font-size: 32px;
+      text-decoration: none;
+      font-weight: 700;
+   }
+
+   #roadmap {
+      width: 100%;
+      background-color: lightgray;
+   }
+
+   .col-2 {
+      align-items: stretch;
+   }
+
+   .timeline div {
+      padding: 0;
+      height: 40px;
+   }
+
+   .timeline hr {
+      border-top: 3px solid #573725;
+      margin: 0;
+      top: 17px;
+      position: relative;
+   }
+
+   .timeline .col-2 {
+      display: flex;
+      overflow: hidden;
+   }
+
+   .timeline .corner {
+      border: 3px solid #573725;
+      width: 100%;
+      position: relative;
+      border-radius: 15px;
+   }
+
+   .timeline .top-right {
+      left: 50%;
+      top: -50%;
+   }
+
+   .timeline .left-bottom {
+      left: -50%;
+      top: calc(50% - 3px);
+   }
+
+   .timeline .top-left {
+      left: -50%;
+      top: -50%;
+   }
+
+   .timeline .right-bottom {
+      left: 50%;
+      top: calc(50% - 3px);
+   }
+
+   .how-it-works.row .col-2.bottom:after {
+      height: 50%;
+      left: 50%;
+      top: 50%;
+   }
+
+   .how-it-works.row .col-2:after {
+      content: "";
+      position: absolute;
+      border-left: 3px solid #573725;
+      z-index: 1;
+   }
+</style>
+
+<body class="mdc-typography">
+
+   <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
+      <div class="mdc-top-app-bar__row">
+         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
+
+            <div><img id="bill" src="/images/logo.png" height="80" /></div>
+
+            <nav class="menu">We like the schmuck</nav>
+
+            <img src="/images/avalanche.png" width="140" hspace="5" />
+
+            <menu>
+               <button class="mdc-button--outlined" id="preferences">
+                  <div class="mdc-button__ripple"></div>
+                  <span class="mdc-button__label">
+                      <ion-icon name="settings-outline"></ion-icon>
+                  </span>
+               </button>
+               <div class="mdc-dialog">
+                  <div class="mdc-dialog__container">
+                      <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="preferences" aria-describedby="preferences-content">
+                          <div class="mdc-dialog__content" id="preferences-content">
+                              <button onClick="clear()">Clear</button>
+                          </div>
+                          <div class="mdc-dialog__actions">
+                              <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
+                                  <div class="mdc-button__ripple"></div>
+                                  <span class="mdc-button__label">Close</span>
+                              </button>
+                          </div>
+                      </div>
+                  </div>
+              </div>                              
+              <audio controls autoplay><source src="/audios/intro.mp3" type="audio/mpeg"></audio>
+            </menu>
+
+         </section>
+      </div>
+   </header>
+   <main>
+      <section style="display:flex;padding-bottom:20px">
+        This is not a blog
+      </section>
+   </main>
+</body>
+</html>
