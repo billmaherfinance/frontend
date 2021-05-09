@@ -4,12 +4,10 @@
 <head>
 
    <meta charset="utf-8" />
-   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
-   <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport" />
-   <meta name="viewport" content="width=device-width" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
    <meta name="title" content="Bill Maher Finance">
-   <meta name="description" content="Major Fan of Bill Maher">
+   <meta name="description" content="Fans of Bill Maher - Speak with your Wallet!">
 
    <meta property="og:type" content="website">
    <meta property="og:url" content="https://billmaher.finance">
@@ -18,9 +16,7 @@
    <title>Bill Maher Finance</title>
 
    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-   <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" crossorigin="anonymous">
-   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
-      crossorigin="anonymous">
+   <link rel="stylesheet" href="reset.css">
 
    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
    <script src="https://unpkg.com/web3/dist/web3.min.js"></script>
@@ -36,72 +32,47 @@
    :root {
       --mdc-typography-font-family: "Encode Sans", sans-serif, monospace;
 
-      --mdc-theme-primary: #696969;
-      --bg-color: #fff;
-
-      --header-bg-color: #fff;
-      --header-link-color: rgba(0, 0, 0, 0.85);
-
-      --button-bg-color: rgba(255, 255, 255, 0.05);
-      --button-bg-hover-color: darken(--button-bg-color, 20%);
-
-      --button-color: rgb(51, 169, 255);
-      --button-border-color: rgb(51, 169, 255);
+      --mdc-theme-primary: rgba(0, 0, 0, 0.85);
+      --bg-color: lightgray;
 
    }
 
-   @media screen and (min-width: 450px) {
-      html {
-         --header-fontsize: 20px;
-         --header-padding: 15px;
-      }
+   #snap {
+      margin: auto;
+      position: absolute;
+      top: 0; left: 0; bottom: 0; right: 0;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+   }
 
-      #avalabs {
-         width: 50px;
+   @media screen and (min-width: 450px) {
+      #snap {
+         width: 100%;
+      }
+      #bill {
+         width: 125px;
+         height: 125px;
       }
    }
 
    @media screen and (min-width: 750px) {
-      html {
-         --header-fontsize: 20px;
-         --header-padding: 40px;
+      #snap {
+         width: 600px;
       }
-
-      #avalabs {
-         width: 75px;
+      #bill {
+         width: 300px;
+         height: 300px;
       }
    }
 
    @media screen and (min-width: 1050px) {
-      html {
-         --header-fontsize: 20px;
-         --header-padding: 75px;
+      #snap {
+         width: 800px;
       }
-
-      #avalabs {
-         width: 100px;
-      }
-   }
-
-   @media screen and (min-width: 1350px) {
-      html {
-         --header-fontsize: 20px;
-         --header-padding: 125px;
-      }
-
-      #avalabs {
-         width: 120px;
-      }
-   }
-
-   @media screen and (min-width: 1650px) {
-      html {
-         --header-fontsize: 20px;
-         --header-padding: 175px;
-      }
-
-      #avalabs {
-         width: 140px;
+      #bill {
+         width: 512px;
+         height: 512px;
       }
    }
 
@@ -112,408 +83,40 @@
 
    body {
       background-color: var(--bg-color);
-      color: var(--mdc-theme-primary);
+      color: var(--mdc-theme-primary);      
    }
 
-   header .mdc-button--outlined:not(:disabled) {
-      background-color: var(--button-bg-color) !important;
-      color: var(--button-color) !important;
-      border-color: var(--button-border-color) !important;
-      cursor: pointer;
-   }
-
-   header .mdc-button--outlined:not(:disabled):hover {
-      background-color: var(--button-bg-hover-color) !important;
-   }
-
-   .mdc-top-app-bar {
-      padding-left: var(--header-padding);
-      padding-right: var(--header-padding);
-      background-color: var(--header-bg-color);
-      color: var(--mdc-theme-primary);
-   }
-
-   .mdc-top-app-bar a {
-      font-weight: 700;
-      font-size: var(--header-fontsize);
-      color: var(--header-link-color);
-      text-decoration: none;
-   }
-
-   .mdc-top-app-bar a:hover {
-      color: var(--header-link-color-hover)
-   }
-
-   .mdc-top-app-bar--fixed .mdc-top-app-bar__row {
-      height: 91px;
-   }
-
-   nav {
-      flex-grow: 2;
-   }
-
-   main {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-   }
-
-   main {
-      padding-top: 111px;
-      padding-bottom: 111px;
-   }
-
-   .information .feature {
-      font-size: 46px;
-   }
-
-   .circle {
-      padding: 13px 20px;
-      border-radius: 50%;
-      background-color: #573725;
-      color: #fff;
-      max-height: 50px;
-      z-index: 2;
-   }
-
-   .font-weight-bold {
-      font-weight: 700 !important;
-   }
-
-   .credit {
-      font-size: 32px;
-      text-decoration: none;
-      font-weight: 700;
-   }
-
-   #roadmap {
-      width: 100%;
-      background-color: lightgray;
-   }
-
-   .col-2 {
-      align-items: stretch;
-   }
-
-   .timeline div {
-      padding: 0;
-      height: 40px;
-   }
-
-   .timeline hr {
-      border-top: 3px solid #573725;
-      margin: 0;
-      top: 17px;
-      position: relative;
-   }
-
-   .timeline .col-2 {
-      display: flex;
-      overflow: hidden;
-   }
-
-   .timeline .corner {
-      border: 3px solid #573725;
-      width: 100%;
-      position: relative;
-      border-radius: 15px;
-   }
-
-   .timeline .top-right {
-      left: 50%;
-      top: -50%;
-   }
-
-   .timeline .left-bottom {
-      left: -50%;
-      top: calc(50% - 3px);
-   }
-
-   .timeline .top-left {
-      left: -50%;
-      top: -50%;
-   }
-
-   .timeline .right-bottom {
-      left: 50%;
-      top: calc(50% - 3px);
-   }
-
-   .how-it-works.row .col-2.bottom:after {
-      height: 50%;
-      left: 50%;
-      top: 50%;
-   }
-
-   .how-it-works.row .col-2:after {
-      content: "";
-      position: absolute;
-      border-left: 3px solid #573725;
-      z-index: 1;
+   figcaption {
+      text-align: center;
    }
 </style>
 
 <body class="mdc-typography">
 
-   <header class="mdc-top-app-bar mdc-top-app-bar--fixed">
-      <div class="mdc-top-app-bar__row">
-         <section class="mdc-top-app-bar__section mdc-top-app-bar__section--align-start">
-
-            <div><img id="bill" src="/images/logo.png" height="80" /></div>
-
-            <nav class="menu">We like the schmuck</nav>
-
-            <img src="/images/avalanche.png" width="140" hspace="5" />
-
-            <menu>
-               <button class="mdc-button--outlined" id="preferences">
-                  <div class="mdc-button__ripple"></div>
-                  <span class="mdc-button__label">
-                      <ion-icon name="settings-outline"></ion-icon>
-                  </span>
-               </button>
-               <div class="mdc-dialog">
-                  <div class="mdc-dialog__container">
-                      <div class="mdc-dialog__surface" role="alertdialog" aria-modal="true" aria-labelledby="preferences" aria-describedby="preferences-content">
-                          <div class="mdc-dialog__content" id="preferences-content">
-                              <button onClick="clear()">Clear</button>
-                          </div>
-                          <div class="mdc-dialog__actions">
-                              <button type="button" class="mdc-button mdc-dialog__button" data-mdc-dialog-action="close">
-                                  <div class="mdc-button__ripple"></div>
-                                  <span class="mdc-button__label">Close</span>
-                              </button>
-                          </div>
-                      </div>
-                  </div>
-              </div>                              
-              <audio controls autoplay><source src="/audios/intro.mp3" type="audio/mpeg"></audio>
-            </menu>
-
-         </section>
-      </div>
-   </header>
-   <main>
-      <section style="display:flex;padding-bottom:20px">
-         <div>
-            <div style="font-size: x-large;">You planning to moon?</div>
-            <div style="font-size: x-large;">We're going to Mahers! 🚀🚀🚀</div>
-            <div><br /></div>
-            <div style="text-align: center; padding: 20px;">
-               <iframe width="355" height="200" src="https://www.youtube.com/embed/HaJpYjO136o"
-                  title="YouTube video player" frameborder="0"
-                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                  allowfullscreen></iframe>
-            </div>
-         </div>
-         <div>
-            <img src="https://github.githubassets.com/images/modules/profile/profile-first-repo.svg" align="right">
-            <div style="font-size: large; text-align: center;">
-               After hours of development❗
-            </div>
-            <div style="font-size: large; text-align: center;">
-               We've open sourced our software❗
-            </div>
-            <div style="text-align: center;">
-               <a href="https://github.com/billmaherfinance/contracts"><img height="20" width="20" hspace="2"
-                     src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">Contracts</a>
-               <a href="https://github.com/billmaherfinance/frontend"><img height="20" width="20" hspace="2"
-                     src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">Frontend</a>
-               <a href="https://github.com/billmaherfinance/"><img height="20" width="20" hspace="2"
-                     src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">Backend</a>
-               <a href="https://github.com/billmaherfinance/"><img height="20" width="20" hspace="2"
-                     src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png">Cross-chain</a>
-            </div>
-         </div>
+      <section id="snap">
+         <figure>
+            <img id="bill" src="/images/logo.png"/>
+            <figcaption>Fig.1 - Homo ignoramus</figcaption>
+          </figure>                  
+         <dl>
+            <dt><a 
+               href="https://cchain.explorer.avax.network/tx/0x7352fc7de853987d07a7c43222386c35901feb05f7bd80bf69cd9bc3569d3e19/token-transfers"
+               ></a>Minted</dt>
+            <dd id="totalsupply">100 Quadrillion</dd>
+            <dt>Burn Pile</dt>
+            <dd id="burnpile"></dd>         
+            <dt>Price</dt>
+            <dd id="price"></dd>         
+            <dt>Market Capitalization</dt>
+            <dd id="marketcap"></dd>        
+            <dt>Transactions</dt>
+            <dd id="transactions"></dd>            
+            <dt>Transfers</dt>
+            <dd id="transfers"></dd>         
+            <dt>Hodlers</dt>
+            <dd id="hodlers"></dd>         
+         </dl>
       </section>
 
-      <section class="crazygray" id="roadmap">
-         <div class="container information py-5">
-            <div class="row py-4">
-               <div class="col-md-12 text-center">
-                  <h2 class="feature">Roadmap</h2>
-               </div>
-            </div>
-            <div class="row align-items-center how-it-works d-flex">
-               <div class="col-2 text-center bottom d-inline-flex justify-content-center align-items-center">
-                  <div class="circle font-weight-bold">1</div>
-               </div>
-               <div class="col-6">
-                  <h5>Register domain (GoDaddy)</h5>
-                  <p><i class="fa fa-check"></i> 4 May 2021</p>
-               </div>
-            </div>
-            <div class="row timeline">
-               <div class="col-2">
-                  <div class="corner top-right"></div>
-               </div>
-               <div class="col-8">
-                  <hr>
-               </div>
-               <div class="col-2">
-                  <div class="corner left-bottom"></div>
-               </div>
-            </div>
-            <div class="row align-items-center justify-content-end how-it-works d-flex">
-               <div class="col-6 text-right">
-                  <h5>Logo contributed by world renown artist Shabeeba Asra</h5>
-                  <p><i class="fa fa-check"></i> 5 May 2021</p>
-               </div>
-               <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-                  <div class="circle font-weight-bold">2</div>
-               </div>
-            </div>
-            <div class="row timeline">
-               <div class="col-2">
-                  <div class="corner right-bottom"></div>
-               </div>
-               <div class="col-8">
-                  <hr>
-               </div>
-               <div class="col-2">
-                  <div class="corner top-left"></div>
-               </div>
-            </div>
-            <div class="row align-items-center how-it-works d-flex">
-               <div class="col-2 text-center full-left d-inline-flex justify-content-center align-items-center">
-                  <div class="circle font-weight-bold">3</div>
-               </div>
-               <div class="col-6">
-                  <h5>AWS partnership</h5>
-                  <p><i class="fa fa-check"></i> 6 May 2021</p>
-               </div>
-            </div>
-            <div class="row timeline">
-               <div class="col-2">
-                  <div class="corner top-right"></div>
-               </div>
-               <div class="col-8">
-                  <hr>
-               </div>
-               <div class="col-2">
-                  <div class="corner left-bottom"></div>
-               </div>
-            </div>
-            <div class="row align-items-center justify-content-end how-it-works d-flex">
-               <div class="col-6 text-right">
-                  <h5>Fair stealth launch</h5>
-                  <p><i class="fa fa-check"></i> 6 May 2021</p>
-               </div>
-               <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-                  <div class="circle font-weight-bold">4</div>
-               </div>
-            </div>
-            <div class="row timeline">
-               <div class="col-2">
-                  <div class="corner right-bottom"></div>
-               </div>
-               <div class="col-8">
-                  <hr>
-               </div>
-               <div class="col-2">
-                  <div class="corner top-left"></div>
-               </div>
-            </div>
-            <div class="row align-items-center how-it-works d-flex">
-               <div class="col-2 text-center full-left d-inline-flex justify-content-center align-items-center">
-                  <div class="circle font-weight-bold">5</div>
-               </div>
-               <div class="col-6">
-                  <h5>Algorithmically generated NFTs </h5>
-                  <p>In Progress <i class="fa fa-spinner"></i></p>
-               </div>
-            </div>
-            <div class="row timeline">
-               <div class="col-2">
-                  <div class="corner top-right"></div>
-               </div>
-               <div class="col-8">
-                  <hr>
-               </div>
-               <div class="col-2">
-                  <div class="corner left-bottom"></div>
-               </div>
-            </div>
-            <div class="row align-items-center justify-content-end how-it-works d-flex">
-               <div class="col-6 text-right">
-                  <h5>Governance </h5>
-                  <p>In Progress <i class="fa fa-spinner"></i></p>
-               </div>
-               <div class="col-2 text-center full d-inline-flex justify-content-center align-items-center">
-                  <div class="circle font-weight-bold">6</div>
-               </div>
-            </div>
-            <div class="row timeline">
-               <div class="col-2">
-                  <div class="corner right-bottom"></div>
-               </div>
-               <div class="col-8">
-                  <hr>
-               </div>
-               <div class="col-2">
-                  <div class="corner top-left"></div>
-               </div>
-            </div>
-            <div class="row align-items-center how-it-works d-flex">
-               <div class="col-2 text-center full-left d-inline-flex justify-content-center align-items-center">
-                  <div class="circle font-weight-bold">7</div>
-               </div>
-               <div class="col-6">
-                  <h5>Cross-chain compatibility</h5>
-                  <p>Q3 2021 <i class="fa fa-spinner"></i></p>
-               </div>
-            </div>
-            <div class="row timeline">
-               <div class="col-2">
-                  <div class="corner top-right"></div>
-               </div>
-               <div class="col-8">
-                  <hr>
-               </div>
-               <div class="col-2">
-                  <div class="corner left-bottom"></div>
-               </div>
-            </div>
-            <div class="row align-items-center justify-content-end how-it-works d-flex">
-               <div class="col-6 text-right">
-                  <h5>NFTs Prediction Market</h5>
-                  <p>Q4 2021 <i class="fa fa-spinner"></i></p>
-               </div>
-               <div class="col-2 text-center top-right d-inline-flex justify-content-center align-items-center">
-                  <div class="circle font-weight-bold">8</div>
-               </div>
-            </div>
-         </div>
-      </section>
-      <section>
-         <div class="row">
-            <div class="col-md-12 text-center py-4">
-               <a href="https://github.com/" target="_blank" class="credit" rel="noopener noreferrer"> Made with ♥ by
-                  the Bill Maher Community</a>
-            </div>
-         </div>
-      </section>
-      <section class="crazygray">
-         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
-               <h2 class="wow  fadeInUp  mr-b10 animated" data-wow-duration="1.0s"
-                  style="visibility: visible; animation-duration: 1s; animation-name: fadeInUp;">Subscribe to us!</h2>
-               <ul>
-                  <li><a
-                        href="https://discord.gg" target="_blank"><i class="fab fa-discord"></i></a></li>
-                  <li><a
-                        href="https://twitter.com/" target="_blank"><i class="fab fa-twitter"></i></a>
-                  </li>
-                  <li><a
-                        href="https://t.me/" target="_blank"><i class="fab fa-telegram"></i></a></li>
-                  <li><a
-                        href="https://medium.com/" target="_blank"><i class="fab fa-medium"></i></a>
-                  </li>
-                  <li><a 
-                        href="https://gitbook.io/" target="_blank"><i class="fa fa-book"></i></a>
-                  </li>
-               </ul>
-         </div>
-      </section>
-   </main>
 </body>
 </html>
