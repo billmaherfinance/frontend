@@ -16,11 +16,10 @@
    <title>Bill Maher Finance</title>
 
    <link rel="stylesheet" href="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.css">
-   <link rel="stylesheet" href="reset.css">
+   <link rel="stylesheet" href="asset/css/reset.css">
 
    <script src="https://unpkg.com/material-components-web@latest/dist/material-components-web.min.js"></script>
    <script src="https://unpkg.com/web3/dist/web3.min.js"></script>
-   <script type="module" src="https://unpkg.com/ionicons@5.4.0/dist/ionicons/ionicons.esm.js"></script>
 
    <script type="module" src="index.js"></script>
 
@@ -31,48 +30,64 @@
 
    :root {
       --mdc-typography-font-family: "Encode Sans", sans-serif, monospace;
-
       --mdc-theme-primary: rgba(0, 0, 0, 0.85);
-      --bg-color: lightgray;
-
+      --mdc-theme--on-primary:rgba(129, 0, 0, 0.75); 
+      --mdc-theme--on-primary-hover: #810000; 
+      --bg-color: lightgray;  
    }
 
    #snap {
-      margin: auto;
-      position: absolute;
-      top: 0; left: 0; bottom: 0; right: 0;
       display: flex;
-      justify-content: space-around;
-      align-items: center;
+      flex-direction: column-reverse;
+      align-items: center; 
+      justify-content: center;     
    }
 
-   @media screen and (min-width: 450px) {
-      #snap {
-         width: 100%;
-      }
-      #bill {
-         width: 125px;
-         height: 125px;
-      }
+   a {
+      text-decoration: none;      
+      color: var(--mdc-theme--on-primary)
+   }
+
+   a:hover {      
+      color: var(--mdc-theme--on-primary-hover)
+   }
+
+   #bill {
+      width: 25%;
+      height: 25%;
+   }
+
+   dd {
+      margin-bottom: 2px;
+   }
+
+   #figure {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 25px
+   }
+
+   #bill {
+         width: 256px;
+         height: 256px;
    }
 
    @media screen and (min-width: 750px) {
       #snap {
-         width: 600px;
+         margin: auto;
+         position: absolute;
+         top: 0; left: 0; bottom: 0; right: 0;
+         width: 80%;
+         flex-direction: row;
+         top: 0;
+      }
+      dl {
+         flex: 0;
       }
       #bill {
-         width: 300px;
-         height: 300px;
-      }
-   }
-
-   @media screen and (min-width: 1050px) {
-      #snap {
-         width: 800px;
-      }
-      #bill {
-         width: 512px;
-         height: 512px;
+         width: 75%;
+         height: 75%;
       }
    }
 
@@ -85,37 +100,83 @@
       background-color: var(--bg-color);
       color: var(--mdc-theme-primary);      
    }
-
-   figcaption {
-      text-align: center;
+   #price::before {
+      content: "💲";
    }
+   #marketcap::before {
+      content: "💸"
+   }
+   #transactions::before {
+      content: "⚡"
+   }
+   #transfers::before {
+      content: "🔁";   
+   }
+   #hodlers::before {
+      content: "💰";   
+   }   
+   
 </style>
 
 <body class="mdc-typography">
 
-      <section id="snap">
-         <figure>
-            <img id="bill" src="/images/logo.png"/>
-            <figcaption>Fig.1 - Homo ignoramus</figcaption>
-          </figure>                  
+      <section id="snap">          
          <dl>
-            <dt><a 
+            <dt>Minted</dt>
+            <dd><a
+               id="minted"  
+               target="_blank"
                href="https://cchain.explorer.avax.network/tx/0x7352fc7de853987d07a7c43222386c35901feb05f7bd80bf69cd9bc3569d3e19/token-transfers"
-               ></a>Minted</dt>
-            <dd id="totalsupply">100 Quadrillion</dd>
+               ></a></dd>
             <dt>Burn Pile</dt>
-            <dd id="burnpile"></dd>         
+            <dd><a 
+                  id="burnpile" 
+                  target="_blank"
+                  href="https://cchain.explorer.avax.network/address/0x000000000000000000000000000000000000dEaD"
+               ></a></dd>         
+            <dt>Bill Pile</dt>
+            <dd><a 
+                  id="billpile" 
+                  target="_blank"
+                  href="https://cchain.explorer.avax.network/address/0xE124d1b6F4C3D7C9EAd6a50692FC3bd2b4e7801f"
+               ></a></dd>               
+            <dt>Circulating</dt>
+            <dd><a 
+                  id="circulating" 
+                  target="_blank"
+                  href="https://cchain.explorer.avax.network/address/0x000000000000000000000000000000000000dEaD"
+               ></a></dd>               
             <dt>Price</dt>
-            <dd id="price"></dd>         
+            <dd><a 
+               id="price"
+               target="_blank"
+               href="https://info.pangolin.exchange/#/token/0x9e7890b2e2de38d764a29b0de1e2b9b37c90ddb9"
+               ></a></dd>         
             <dt>Market Capitalization</dt>
             <dd id="marketcap"></dd>        
             <dt>Transactions</dt>
-            <dd id="transactions"></dd>            
+            <dd><a
+               id="transactions" 
+               target="_blank"
+               href="https://cchain.explorer.avax.network/address/0x9E7890B2E2dE38D764A29b0DE1e2B9b37C90Ddb9/transactions"
+               ></a></dd>            
             <dt>Transfers</dt>
-            <dd id="transfers"></dd>         
+            <dd><a
+               id="transfers" 
+               target="_blank"
+               href="https://cchain.explorer.avax.network/tokens/0x9E7890B2E2dE38D764A29b0DE1e2B9b37C90Ddb9/token-transfers"
+               ></a></dd>         
             <dt>Hodlers</dt>
-            <dd id="hodlers"></dd>         
+            <dd><a
+               id="hodlers" 
+               target="_blank"
+               href="https://cchain.explorer.avax.network/tokens/0x9E7890B2E2dE38D764A29b0DE1e2B9b37C90Ddb9/token-transfers"
+               ></a></dd>         
          </dl>
+         <div id="figure">
+            <img id="bill" src="/asset/image/logo.png"/>
+            <div>Fig.1 - Homo ignoramus</div>
+         </div>         
       </section>
 
 </body>
